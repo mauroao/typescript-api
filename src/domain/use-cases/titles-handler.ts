@@ -1,6 +1,6 @@
 import TitleSearchParams from '../entities/titles-search-params';
 import TitleSearchResult from '../entities/titles-search-result';
-import ItitlesRepository from '../repository/titles-repository';
+import ItitlesRepository from '../repository/Ititles-repository';
 
 class TitlesHandler {
   private repository: ItitlesRepository;
