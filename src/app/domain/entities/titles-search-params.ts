@@ -1,4 +1,4 @@
-import config from '../config';
+import IConfig from '../config/i-config';
 
 class TitleSearchParams {
   public filterColumnName = '';
@@ -6,7 +6,11 @@ class TitleSearchParams {
   public sortColumnName = '';
   public sortDesc = false;
   public pageNumber = 1;
-  public totalItemsPerPage = config.defaultTotalItemsPerPage;
+  public totalItemsPerPage: number;
+
+  constructor(config: IConfig) {
+    this.totalItemsPerPage = config.getTotalItemsPerPage();
+  }
 }
 
 export default TitleSearchParams;

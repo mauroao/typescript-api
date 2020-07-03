@@ -1,10 +1,10 @@
 import TitleSearchParams from '../entities/titles-search-params';
 import TitleSearchResult from '../entities/titles-search-result';
 
-interface ItitlesRepository {
+interface ITitlesRepository {
   searchTitles(
     titlesSearchParams: TitleSearchParams
   ): Promise<TitleSearchResult>;
 }
 
-export default ItitlesRepository;
+export default ITitlesRepository;

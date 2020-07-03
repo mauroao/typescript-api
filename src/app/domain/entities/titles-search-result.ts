@@ -1,13 +1,17 @@
 import Title from './title';
-import config from '../config';
+import IConfig from '../config/i-config';
 
 class TitleSearchResult {
   public pageNumber = 1;
-  public totalItemsPerPage = config.defaultTotalItemsPerPage;
+  public totalItemsPerPage: number;
   public totalPages = 1;
   public totalItems = 0;
 
   public items: Title[] = [];
+
+  constructor(config: IConfig) {
+    this.totalItemsPerPage = config.getTotalItemsPerPage();
+  }
 }
 
 export default TitleSearchResult;
