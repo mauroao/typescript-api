@@ -1,6 +1,7 @@
 import IConfig from '../app/domain/config/i-config';
+import sinon from 'sinon';
 
 export const totalItemsPerPage = 99;
 export const fakeConfig = <IConfig>{
-  getTotalItemsPerPage: (): number => totalItemsPerPage
+  getTotalItemsPerPage: sinon.fake.returns(totalItemsPerPage)
 };
