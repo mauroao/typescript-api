@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose';
+import ITitleDocument from './i-title-document';
 
 const titleSchema = new Schema({
   tconst: String,
@@ -11,6 +12,6 @@ const titleSchema = new Schema({
   genres: [String]
 });
 
-const titleModel = model('title', titleSchema);
+const titleModel = model<ITitleDocument>('title', titleSchema);
 
 export default titleModel;
