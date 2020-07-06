@@ -20,9 +20,7 @@ class TitleRepository implements ITitlesRepository {
     this.config = config;
   }
 
-  public searchTitles = async (
-    params: TitleSearchParams
-  ): Promise<TitleSearchResult> => {
+  public searchTitles = async (params: TitleSearchParams): Promise<TitleSearchResult> => {
     const result = new TitleSearchResult(this.config);
 
     if (params.totalItemsPerPage > 0) {
@@ -35,11 +33,7 @@ class TitleRepository implements ITitlesRepository {
       filter[(params.filterColumnName = params.filterValue)];
     }
 
-    result.totalItems = await titleModel
-      .find(filter)
-      .select({ id: 1 })
-      .count()
-      .exec();
+    result.totalItems = await titleModel.find(filter).select({ id: 1 }).count().exec();
 
     const skipNumber = (params.pageNumber - 1) * result.totalItemsPerPage;
 
@@ -49,11 +43,7 @@ class TitleRepository implements ITitlesRepository {
       sorter[params.sortColumnName] = params.sortDesc ? 'desc' : 'asc';
     }
 
-    const documents = await titleModel
-      .find(filter)
-      .sort(sorter)
-      .skip(skipNumber)
-      .limit(result.totalItemsPerPage);
+    const documents = await titleModel.find(filter).sort(sorter).skip(skipNumber).limit(result.totalItemsPerPage);
 
     result.items = documents.map((item) => {
       const title = new Title();

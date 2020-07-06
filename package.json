@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "test": "mocha \"./out/test/**/*-test.js\" ",
-    "lint": "eslint \"./src/**/*.ts\" "
+    "lint": "eslint \"./src/**/*.ts\" ",
+    "lint:fix": "eslint --fix \"./src/**/*.ts\"  "
   },
   "author": "",
   "license": "ISC",

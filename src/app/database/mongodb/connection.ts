@@ -1,8 +1,4 @@
-import {
-  connect as mongoConnect,
-  ConnectionOptions,
-  connection
-} from 'mongoose';
+import { connect as mongoConnect, ConnectionOptions, connection } from 'mongoose';
 
 export const connect = async (): Promise<void> => {
   const options: ConnectionOptions = {
@@ -11,8 +7,7 @@ export const connect = async (): Promise<void> => {
     useUnifiedTopology: true
   };
 
-  const uri: string =
-    process.env.MONGO_DB_CONNECTION || 'mongodb://localhost:27017/testtitle';
+  const uri: string = process.env.MONGO_DB_CONNECTION || 'mongodb://localhost:27017/testtitle';
 
   await mongoConnect(uri, options);
 };

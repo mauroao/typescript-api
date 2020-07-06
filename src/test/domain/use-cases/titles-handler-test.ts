@@ -16,9 +16,7 @@ describe('TitlesHandler', () => {
   describe('#searchTitles', async () => {
     it('should resolves expected titleSearchResult ', async () => {
       const titlesHandler = new TitlesHandler(fakeRepo);
-      const titleSearchResult = await titlesHandler.searchTitles(
-        new TitleSearchParams(fakeConfig)
-      );
+      const titleSearchResult = await titlesHandler.searchTitles(new TitleSearchParams(fakeConfig));
       assert.strictEqual(titleSearchResult, expectedTitleSearchResult);
     });
   });

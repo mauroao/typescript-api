@@ -9,9 +9,7 @@ class TitlesHandler {
     this.repository = repository;
   }
 
-  public async searchTitles(
-    titlesSearchParams: TitleSearchParams
-  ): Promise<TitleSearchResult> {
+  public async searchTitles(titlesSearchParams: TitleSearchParams): Promise<TitleSearchResult> {
     return await this.repository.searchTitles(titlesSearchParams);
   }
 }
