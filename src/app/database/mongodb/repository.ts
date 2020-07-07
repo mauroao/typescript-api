@@ -4,6 +4,7 @@ import TitleSearchResult from '../../domain/entities/titles-search-result';
 import IConfig from '../../domain/config/i-config';
 import titleModel from './title-model';
 import Title from '../../domain/entities/title';
+import ITitleDocument from './i-title-document';
 
 interface IFilter {
   [key: string]: any;
@@ -20,6 +21,19 @@ class TitleRepository implements ITitlesRepository {
     this.config = config;
   }
 
+  private createTitle = (doc: ITitleDocument) => {
+    const title = new Title();
+    title.endYear = doc.endYear;
+    title.genres = doc.genres;
+    title.isAdult = doc.isAdult;
+    title.originalTitle = doc.originalTitle;
+    title.primaryTitle = doc.primaryTitle;
+    title.startYear = doc.startYear;
+    title.tconst = doc.tconst;
+    title.titleType = doc.titleType;
+    return title;
+  };
+
   public searchTitles = async (params: TitleSearchParams): Promise<TitleSearchResult> => {
     const result = new TitleSearchResult(this.config);
 
@@ -30,7 +44,7 @@ class TitleRepository implements ITitlesRepository {
     const filter: IFilter = {};
 
     if (params.filterColumnName && params.filterValue) {
-      filter[(params.filterColumnName = params.filterValue)];
+      filter[params.filterColumnName] = params.filterValue;
     }
 
     result.totalItems = await titleModel.find(filter).select({ id: 1 }).count().exec();
@@ -45,18 +59,7 @@ class TitleRepository implements ITitlesRepository {
 
     const documents = await titleModel.find(filter).sort(sorter).skip(skipNumber).limit(result.totalItemsPerPage);
 
-    result.items = documents.map((item) => {
-      const title = new Title();
-      title.endYear = item.endYear;
-      title.genres = item.genres;
-      title.isAdult = item.isAdult;
-      title.originalTitle = item.originalTitle;
-      title.primaryTitle = item.primaryTitle;
-      title.startYear = item.startYear;
-      title.tconst = item.tconst;
-      title.titleType = item.titleType;
-      return title;
-    });
+    result.items = documents.map(this.createTitle);
 
     return result;
   };
