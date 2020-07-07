@@ -57,7 +57,16 @@ class TitleRepository implements ITitlesRepository {
       sorter[params.sortColumnName] = params.sortDesc ? 'desc' : 'asc';
     }
 
-    const documents = await titleModel.find(filter).sort(sorter).skip(skipNumber).limit(result.totalItemsPerPage);
+    result.totalPages = Math.ceil(result.totalItems / result.totalItemsPerPage);
+
+    result.pageNumber = params.pageNumber;
+
+    const documents = await titleModel
+      .find(filter)
+      .sort(sorter)
+      .skip(skipNumber)
+      .limit(result.totalItemsPerPage)
+      .exec();
 
     result.items = documents.map(this.createTitle);
 
