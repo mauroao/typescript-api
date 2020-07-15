@@ -1,10 +1,10 @@
 import assert from 'assert';
 import sinon from 'sinon';
-import { fakeConfig } from '../../helper';
-import TitlesHandler from '../../../app/domain/use-cases/titles-handler';
-import ITitlesRepository from '../../../app/domain/repository/i-titles-repository';
-import TitleSearchParams from '../../../app/domain/entities/titles-search-params';
-import TitleSearchResult from '../../../app/domain/entities/titles-search-result';
+import { fakeConfig } from './helper';
+import TitlesHandler from '../domain/use-cases/titles-handler';
+import ITitlesRepository from '../domain/repository/i-titles-repository';
+import TitleSearchParams from '../domain/entities/titles-search-params';
+import TitleSearchResult from '../domain/entities/titles-search-result';
 
 const expectedTitleSearchResult = new TitleSearchResult(fakeConfig);
 

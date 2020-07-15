@@ -1,4 +1,4 @@
-import IConfig from '../app/domain/config/i-config';
+import IConfig from '../domain/config/i-config';
 import sinon from 'sinon';
 
 export const totalItemsPerPage = 99;

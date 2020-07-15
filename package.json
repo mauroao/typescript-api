@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "mocha \"./out/test/**/*-test.js\" ",
-    "lint": "eslint \"./src/**/*.ts\" ",
-    "lint:fix": "eslint --fix \"./src/**/*.ts\"  "
+    "test": "mocha \"./out/tests/**/*-test.js\" ",
+    "lint": "eslint \"./source/**/*.ts\" ",
+    "lint:fix": "eslint --fix \"./source/**/*.ts\"  "
   },
   "author": "",
   "license": "ISC",

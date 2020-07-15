@@ -1,5 +1,5 @@
 import assert from 'assert';
-import ConfigReader from '../../app/config/config-reader';
+import ConfigReader from '../config/config-reader';
 
 describe('ConfigReader', () => {
   const configReader = new ConfigReader();

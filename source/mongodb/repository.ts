@@ -1,17 +1,17 @@
-import ITitlesRepository from '../../domain/repository/i-titles-repository';
-import TitleSearchParams from '../../domain/entities/titles-search-params';
-import TitleSearchResult from '../../domain/entities/titles-search-result';
-import IConfig from '../../domain/config/i-config';
+import ITitlesRepository from '../domain/repository/i-titles-repository';
+import TitleSearchParams from '../domain/entities/titles-search-params';
+import TitleSearchResult from '../domain/entities/titles-search-result';
+import IConfig from '../domain/config/i-config';
 import titleModel from './title-model';
-import Title from '../../domain/entities/title';
+import Title from '../domain/entities/title';
 import ITitleDocument from './i-title-document';
 
 interface IFilter {
-  [key: string]: any;
+  [key: string]: number | string;
 }
 
 interface ISorter {
-  [key: string]: any;
+  [key: string]: number | string;
 }
 
 class TitleRepository implements ITitlesRepository {
