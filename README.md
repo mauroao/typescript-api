@@ -1,6 +1,12 @@
 # typescript-api
 Typescript API Project
 
+## Prerequisites
+
+- Visual Studio Code;
+- Plugin: EditorConfig for VS Code;
+- Node.js v16.3.0;
+
 ## Install dependencies
 
 ```
